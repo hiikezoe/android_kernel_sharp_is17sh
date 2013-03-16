@@ -1,0 +1,50 @@
+# drivers/sharp/wifi/Kconfig
+
+menu "Wi-Fi Configuration"
+
+config WIFIPM
+	bool "WLAN Power Management Support"
+	default y
+	help
+	  Power management implementation for WLAN Functionality.
+
+config SHWLAN_BCM4329_1
+	bool "BCM4329 WiFi device Support"
+	default y
+	select WIRELESS_EXT
+	select WEXT_SPY
+	select WEXT_PRIV
+	help
+	  Enable BCM4329 WiFi device driver.
+
+config SHWLAN_BCM4330_1
+	bool "BCM4330 WiFi device Support"
+	default n
+	help
+	  Enable BCM4330 WiFi device driver.
+
+if SHWLAN_BCM4330_1 = y
+#	source "../system/wlan/broadcom/5.90_1/bcmdhd/Kconfig"
+endif #SHWLAN_BCM4330_1
+
+config SHWLAN_CFG80211
+	bool "Enable SHARP specific cfg80211 Support"
+	depends on SHWLAN_BCM4330_1 = y && CFG80211 = y
+	default y
+	select WEXT_CORE
+	select WEXT_PROC
+	help
+	  Enable SHARP specific cfg80211.
+
+config SHWLAN_RSSI_OFFSET
+	int "WLAN RSSI Offset value"
+	range -20 20
+	default 0
+	help
+	  RSSI Offset for WLAN.
+	  Examples:
+	    Actual RSSI:-40dBm + SH_RSSI_OFFSET:0    => -40dBm
+	    Actual RSSI:-40dBm + SH_RSSI_OFFSET:-20  => -60dBm
+	    Actual RSSI:-40dBm + SH_RSSI_OFFSET:20   => -20dBm
+
+endmenu

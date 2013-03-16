@@ -1,0 +1,13 @@
+#
+# Shgeiger device configuration
+#
+# drivers/sharp/shgeiger/Kconfig
+
+menu "Shgeiger Configuration"
+
+config SENSORS_SHGEIGER
+	tristate "Shgeiger Sensor Driver"
+	depends on I2C
+
+endmenu
+

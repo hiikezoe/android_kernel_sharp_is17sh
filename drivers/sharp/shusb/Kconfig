@@ -1,0 +1,13 @@
+#
+# Shusb vbus-power Share Wrapper Configuration
+#
+# drivers/sharp/shusb/Kconfig
+
+menu "GPIO 5V_VBUS_POWER_EN Share Wrapper"
+
+config USB_VBUS_POWER
+	boolean "Shared by USB-Host/Geiger Drivers"
+	depends on USB_EHCI_MSM_72K_SH_CUST && SENSORS_SHGEIGER
+	default n
+
+endmenu

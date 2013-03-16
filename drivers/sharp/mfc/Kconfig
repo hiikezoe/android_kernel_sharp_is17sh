@@ -1,0 +1,15 @@
+#
+# FeliCa device configuration
+#
+
+menu "FeliCa driver"
+
+comment "SHARP FeliCa device drivers"
+
+config SHFELICA
+	bool "FeliCa device drivers"
+	default n
+	help
+	  Enable FeliCa driver.
+
+endmenu

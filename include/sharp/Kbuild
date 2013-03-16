@@ -1,0 +1,3 @@
+# SHCAMERA_NEWLY start
+header-y += sh_camera_tools.h
+# SHCAMERA_NEWLY end

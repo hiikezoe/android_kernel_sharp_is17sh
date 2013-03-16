@@ -1,0 +1,12 @@
+
+menu "AMI603 MDS DRIVER"
+
+config SENSORS_AMI603
+	tristate "AMI603 sensor"
+	default n
+
+config SENSORS_AMI603_FLIP
+	tristate "AMI603 FLIP"
+	default n
+
+endmenu

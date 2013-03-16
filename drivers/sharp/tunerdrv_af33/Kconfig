@@ -1,0 +1,10 @@
+# drivers/sharp/tunerdrv_af33/Kconfig
+
+menu "DTV Tuner Configuration (AF33)"
+
+config DTV_TUNERDEV_AF33
+	bool "set DTV tuner dev. (AF33)"
+	default n
+
+
+endmenu
