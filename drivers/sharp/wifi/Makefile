@@ -5,7 +5,7 @@ ifeq ($(CONFIG_WIFIPM),y)
 endif
 
 ifeq ($(CONFIG_SHWLAN_BCM4329_1),y)
- BCM_SRC_PATH := ../../../../system/wlan/broadcom/4.218_1/
+ BCM_SRC_PATH := ../../../wlan/broadcom/4.218_1/
 endif
 
 ifeq ($(CONFIG_SHWLAN_BCM4330_1),y)
