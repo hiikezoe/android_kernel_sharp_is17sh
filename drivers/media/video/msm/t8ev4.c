@@ -937,7 +937,7 @@ static int32_t t8ev4_video_config(int mode)
 static int32_t t8ev4_snapshot_config(int mode)
 {
 	int32_t rc = 0;
-	int rt;
+	int rt = RES_PREVIEW;
 	/* change sensor resolution if needed */
 	if (t8ev4_ctrl->curr_res != t8ev4_ctrl->pict_res) {
 		if (t8ev4_ctrl->pict_res == QTR_SIZE) {
@@ -957,7 +957,7 @@ static int32_t t8ev4_snapshot_config(int mode)
 static int32_t t8ev4_raw_snapshot_config(int mode)
 {
 	int32_t rc = 0;
-	int rt;
+	int rt = RES_PREVIEW;
 	/* change sensor resolution if needed */
 	if (t8ev4_ctrl->curr_res != t8ev4_ctrl->pict_res) {
 		if (t8ev4_ctrl->pict_res == QTR_SIZE) {

@@ -74,12 +74,15 @@ static void __exit nf_nat_amanda_fini(void)
 	synchronize_rcu();
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_amanda_init(void)
 {
 	BUG_ON(nf_nat_amanda_hook != NULL);
 	rcu_assign_pointer(nf_nat_amanda_hook, help);
 	return 0;
 }
+#pragma GCC diagnostic pop
 
 module_init(nf_nat_amanda_init);
 module_exit(nf_nat_amanda_fini);

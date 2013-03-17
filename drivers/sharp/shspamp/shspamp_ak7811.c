@@ -239,7 +239,7 @@ static void shspamp_i2c_exit(void)
 
 static int shspamp_setMute(u8 val)
 {
-	int	retVal;
+	int	retVal = 0;
 	int	gpioVal;
 	u8	setVal;
 	
@@ -290,7 +290,7 @@ static int shspamp_release(struct inode *inode, struct file *file)
 static long shspamp_ioctl(struct file *file,
 		unsigned int cmd, unsigned long arg)
 {
-	long rc;
+	long rc = -ENOIOCTLCMD;
 	
 	switch(cmd){
 	case	SPAMP_SET_MUTEN:

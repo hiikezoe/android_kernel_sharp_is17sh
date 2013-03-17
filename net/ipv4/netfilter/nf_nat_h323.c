@@ -568,6 +568,8 @@ static int nat_callforwarding(struct sk_buff *skb, struct nf_conn *ct,
 	return 0;
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 /****************************************************************************/
 static int __init init(void)
 {
@@ -592,6 +594,7 @@ static int __init init(void)
 	rcu_assign_pointer(nat_q931_hook, nat_q931);
 	return 0;
 }
+#pragma GCC diagnostic pop
 
 /****************************************************************************/
 static void __exit fini(void)

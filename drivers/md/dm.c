@@ -1033,6 +1033,8 @@ static void dm_bio_destructor(struct bio *bio)
 	bio_free(bio, bs);
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wunused-value"
 /*
  * Creates a little bio that just does part of a bvec.
  */
@@ -1093,6 +1095,7 @@ static struct bio *clone_bio(struct bio *bio, sector_t sector,
 
 	return clone;
 }
+#pragma GCC diagnostic pop
 
 static struct dm_target_io *alloc_tio(struct clone_info *ci,
 				      struct dm_target *ti)

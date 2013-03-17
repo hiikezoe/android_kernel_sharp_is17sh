@@ -521,6 +521,8 @@ int nf_nat_protocol_register(const struct nf_nat_protocol *proto)
 }
 EXPORT_SYMBOL(nf_nat_protocol_register);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 /* No one stores the protocol anywhere; simply delete it. */
 void nf_nat_protocol_unregister(const struct nf_nat_protocol *proto)
 {
@@ -531,6 +533,7 @@ void nf_nat_protocol_unregister(const struct nf_nat_protocol *proto)
 	synchronize_rcu();
 }
 EXPORT_SYMBOL(nf_nat_protocol_unregister);
+#pragma GCC diagnostic pop
 
 /* No one using conntrack by the time this called. */
 static void nf_nat_cleanup_conntrack(struct nf_conn *ct)
@@ -716,6 +719,8 @@ static struct pernet_operations nf_nat_net_ops = {
 	.exit = nf_nat_net_exit,
 };
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_init(void)
 {
 	size_t i;
@@ -760,6 +765,7 @@ static int __init nf_nat_init(void)
 	nf_ct_extend_unregister(&nat_extend);
 	return ret;
 }
+#pragma GCC diagnostic pop
 
 static void __exit nf_nat_cleanup(void)
 {

@@ -657,6 +657,8 @@ void qdisc_destroy(struct Qdisc *qdisc)
 }
 EXPORT_SYMBOL(qdisc_destroy);
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 /* Attach toplevel qdisc to device queue. */
 struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
 			      struct Qdisc *qdisc)
@@ -682,6 +684,7 @@ struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
 	return oqdisc;
 }
 EXPORT_SYMBOL(dev_graft_qdisc);
+#pragma GCC diagnostic pop
 
 static void attach_one_default_qdisc(struct net_device *dev,
 				     struct netdev_queue *dev_queue,

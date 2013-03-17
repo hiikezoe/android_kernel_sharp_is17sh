@@ -117,12 +117,15 @@ static void __exit nf_nat_ftp_fini(void)
 	synchronize_rcu();
 }
 
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_ftp_init(void)
 {
 	BUG_ON(nf_nat_ftp_hook != NULL);
 	rcu_assign_pointer(nf_nat_ftp_hook, nf_nat_ftp);
 	return 0;
 }
+#pragma GCC diagnostic pop
 
 /* Prior to 2.6.11, we had a ports param.  No longer, but don't break users. */
 static int warn_set(const char *val, struct kernel_param *kp)
