@@ -276,7 +276,6 @@ static struct nf_hook_ops nf_nat_ops[] __read_mostly = {
 	},
 };
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_standalone_init(void)
 {
@@ -309,7 +308,6 @@ static int __init nf_nat_standalone_init(void)
 #endif
 	return ret;
 }
-#pragma GCC diagnostic pop
 
 static void __exit nf_nat_standalone_fini(void)
 {

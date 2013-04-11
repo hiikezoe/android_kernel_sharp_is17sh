@@ -1169,7 +1169,6 @@ combine_limits:
 	return validate_hardware_logical_block_alignment(table, limits);
 }
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-value"
 /*
  * Set the integrity profile for this device if all devices used have
@@ -1196,7 +1195,6 @@ static void dm_table_set_integrity(struct dm_table *t)
 		DMWARN("%s: unable to establish an integrity profile",
 		       dm_device_name(t->md));
 }
-#pragma GCC diagnostic pop
 
 void dm_table_set_restrictions(struct dm_table *t, struct request_queue *q,
 			       struct queue_limits *limits)

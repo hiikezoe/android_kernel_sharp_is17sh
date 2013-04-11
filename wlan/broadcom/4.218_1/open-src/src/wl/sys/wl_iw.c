@@ -5497,7 +5497,6 @@ struct {
 	pmkid_t foo[MAXPMKID-1];
 } pmkid_list;
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Warray-bounds"
 static int
 wl_iw_set_pmksa(
@@ -5608,7 +5607,6 @@ wl_iw_set_pmksa(
 			sizeof(pmkid_list));
 	return ret;
 }
-#pragma GCC diagnostic pop
 #endif 
 #endif 
 

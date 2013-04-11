@@ -39,7 +39,6 @@ static struct sbuff *sb_open(void)
 	return m;
 }
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wunused-value"
 static void sb_close(struct sbuff *m)
 {
@@ -53,5 +52,4 @@ static void sb_close(struct sbuff *m)
 		local_bh_enable();
 	}
 }
-#pragma GCC diagnostic pop
 

@@ -538,7 +538,6 @@ static void __exit nf_nat_sip_fini(void)
 	synchronize_rcu();
 }
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_sip_init(void)
 {
@@ -558,7 +557,6 @@ static int __init nf_nat_sip_init(void)
 	rcu_assign_pointer(nf_nat_sdp_media_hook, ip_nat_sdp_media);
 	return 0;
 }
-#pragma GCC diagnostic pop
 
 module_init(nf_nat_sip_init);
 module_exit(nf_nat_sip_fini);

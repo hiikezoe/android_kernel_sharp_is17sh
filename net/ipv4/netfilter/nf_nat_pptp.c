@@ -277,7 +277,6 @@ pptp_inbound_pkt(struct sk_buff *skb,
 	return NF_ACCEPT;
 }
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waddress"
 static int __init nf_nat_helper_pptp_init(void)
 {
@@ -296,7 +295,6 @@ static int __init nf_nat_helper_pptp_init(void)
 	rcu_assign_pointer(nf_nat_pptp_hook_expectfn, pptp_nat_expected);
 	return 0;
 }
-#pragma GCC diagnostic pop
 
 static void __exit nf_nat_helper_pptp_fini(void)
 {

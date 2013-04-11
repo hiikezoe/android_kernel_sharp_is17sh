@@ -197,7 +197,6 @@ out_unlock:
 }
 EXPORT_SYMBOL_GPL(nf_conntrack_l3proto_register);
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waddress"
 void nf_conntrack_l3proto_unregister(struct nf_conntrack_l3proto *proto)
 {
@@ -223,7 +222,6 @@ void nf_conntrack_l3proto_unregister(struct nf_conntrack_l3proto *proto)
 	rtnl_unlock();
 }
 EXPORT_SYMBOL_GPL(nf_conntrack_l3proto_unregister);
-#pragma GCC diagnostic pop
 
 static int nf_ct_l4proto_register_sysctl(struct nf_conntrack_l4proto *l4proto)
 {
@@ -334,7 +332,6 @@ out_unlock:
 }
 EXPORT_SYMBOL_GPL(nf_conntrack_l4proto_register);
 
-#pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Waddress"
 void nf_conntrack_l4proto_unregister(struct nf_conntrack_l4proto *l4proto)
 {
@@ -376,7 +373,6 @@ int nf_conntrack_proto_init(void)
 				   &nf_conntrack_l3proto_generic);
 	return 0;
 }
-#pragma GCC diagnostic pop
 
 void nf_conntrack_proto_fini(void)
 {
